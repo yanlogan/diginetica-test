@@ -16,6 +16,18 @@
   -webkit-text-size-adjust: 100%;
 }
 
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+#app {
+  max-width: 1720px;
+  margin: 0 auto;
+  padding: 0 100px 36px;
+}
+
 a {
   color: $color-font-main;
   text-decoration: inherit;
@@ -27,16 +39,4 @@ a {
   &:visited {
     color: $color-font-history;
   }
-}
-
-body {
-  margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-#app {
-  max-width: 1720px;
-  margin: 0 auto;
-  padding: 0 100px 36px;
 }
