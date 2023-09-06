@@ -1,0 +1,42 @@
+@use "fonts";
+@use "variables"as *;
+
+:root {
+  font-family: 'PT Sans', Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 400;
+  color: $color-font-main;
+  background-color: $color-white;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+a {
+  color: $color-font-main;
+  text-decoration: inherit;
+
+  &:hover {
+    color: $color-font-hover;
+  }
+
+  &:visited {
+    color: $color-font-history;
+  }
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+#app {
+  max-width: 1720px;
+  margin: 0 auto;
+  padding: 0 100px 36px;
+}
