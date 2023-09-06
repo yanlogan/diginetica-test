@@ -10,3 +10,29 @@ $color-border: #D5D5D5; // Цвет бордера для инпутов, чек
 $color-icons: #CBCBCB; // Цвет основных иконок
 $scroll-bar: #F2F2F2; // Цвет полосы скролла
 $color-white: #FFFFFF; // Белый цвет
+
+@mixin list-reset {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@mixin list($dir: r) {
+  @include list-reset;
+  display: flex;
+
+  @if $dir==r {
+    flex-direction: row;
+  }
+
+  @else {
+    // $dir==c
+    flex-direction: column;
+  }
+}
+
+@mixin hover {
+  &:not([disabled]):hover {
+    @content;
+  }
+}
