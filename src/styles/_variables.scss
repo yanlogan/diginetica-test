@@ -17,17 +17,25 @@ $color-white: #FFFFFF; // Белый цвет
   list-style: none;
 }
 
-@mixin list($dir: r) {
+@mixin list($dir: r, $gap: 0) {
   @include list-reset;
   display: flex;
 
   @if $dir==r {
     flex-direction: row;
+
+    &>*:not(:last-child) {
+      margin-right: $gap;
+    }
   }
 
   @else {
     // $dir==c
     flex-direction: column;
+
+    &>*:not(:last-child) {
+      margin-bottom: $gap;
+    }
   }
 }
 
