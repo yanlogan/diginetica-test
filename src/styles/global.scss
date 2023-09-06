@@ -31,6 +31,7 @@ body {
 a {
   color: $color-font-main;
   text-decoration: inherit;
+  transition: all .3s;
 
   &:hover {
     color: $color-font-hover;
