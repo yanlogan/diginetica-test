@@ -55,11 +55,14 @@ watchEffect(() => {
     <div class="product-card__image">
       <img :src="imageUrl" alt="картинка товара" />
       <div class="product-card__labels">
-        <div v-show="isHot" class="product-card__isHot">
+        <div v-show="isHot" class="product-card__label product-card__isHot">
           <span>Хит продаж</span>
           <IconHot />
         </div>
-        <div v-show="discount" class="product-card__discount">
+        <div
+          v-show="discount"
+          class="product-card__label product-card__discount"
+        >
           {{ discount }}%
         </div>
       </div>
@@ -86,6 +89,7 @@ watchEffect(() => {
 <style lang="scss">
 $gap: 16px;
 $gap-small: calc($gap / 2);
+$label-offset: 12px;
 
 .product-card {
   display: grid;
@@ -131,14 +135,15 @@ $gap-small: calc($gap / 2);
   position: absolute;
   width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding: 12px;
+}
+
+.product-card__label {
+  position: absolute;
+  left: $label-offset;
 }
 
 .product-card__isHot {
+  top: $label-offset;
   display: flex;
   align-items: center;
   height: 32px;
@@ -153,6 +158,7 @@ $gap-small: calc($gap / 2);
 }
 
 .product-card__discount {
+  bottom: $label-offset;
   padding: 6px 10px;
   font-size: $font-size-normal;
   line-height: 100%;
