@@ -1,10 +1,18 @@
 <script>
 import IconSearch from "./icons/IconSearch.vue";
 import IconRemove from "./icons/IconRemove.vue";
+import IconClose from "./icons/IconClose.vue";
+import IconDropdown from "./icons/IconDropdown.vue";
+import IconArrow from "./icons/IconArrow.vue";
+import IconHot from "./icons/IconHot.vue";
 
 const icons = {
   search: IconSearch,
   remove: IconRemove,
+  close: IconClose,
+  dropdown: IconDropdown,
+  arrow: IconArrow,
+  hot: IconHot,
 };
 
 export default {
@@ -42,9 +50,15 @@ export default {
   }
 }
 
-.icon-remove:hover {
-  svg > g {
-    opacity: 1;
+.icon-remove,
+.icon-close {
+  &:hover {
+    svg > g {
+      opacity: 1;
+    }
   }
+}
+.icon-dropdown--active {
+  transform: rotate(180deg);
 }
 </style>
