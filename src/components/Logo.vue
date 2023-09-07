@@ -11,7 +11,7 @@
 .logo {
   display: flex;
   align-items: center;
-  height: $gap-header * 2;
+  height: calc($gap-header * 2);
   padding: 0 $gap-header;
   font-family: "Inter", sans-serif;
   font-size: $font-size-big;

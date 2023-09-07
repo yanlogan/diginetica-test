@@ -22,7 +22,7 @@ import Search from "./Search.vue";
 .header {
   display: flex;
   align-items: stretch;
-  padding: $gap-header / 2 0;
+  padding: calc($gap-header / 2) 0;
   font-family: "Inter", sans-serif;
   font-size: $font-size-normal;
 }
