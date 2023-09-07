@@ -12,6 +12,12 @@ $color-icons: #CBCBCB; // Цвет основных иконок
 $scroll-bar: #F2F2F2; // Цвет полосы скролла
 $color-white: #FFFFFF; // Белый цвет
 
+$gap-header: 24px;
+$gap-header-small: 8px;
+
+$gap-cards: 24px;
+$gap-cards-mobile: 12px;
+
 @mixin list-reset {
   margin: 0;
   padding: 0;
