@@ -1,0 +1,201 @@
+<script setup>
+import { ref, watchEffect } from "vue";
+import defaultImage from "../assets/images/product-default.png";
+import IconHot from "./icons/IconHot.vue";
+import ProductButton from "./ProductButton.vue";
+
+// TODO: add title trimming if taking >2 lines
+
+const props = defineProps({
+  title: {
+    type: String,
+    required: true,
+  },
+  seller: {
+    type: String,
+    required: true,
+  },
+  isInStock: {
+    type: Boolean,
+    required: true,
+    default: true,
+  },
+  price: {
+    type: Number,
+    required: true,
+  },
+  oldPrice: {
+    type: Number,
+    required: false,
+  },
+  imageUrl: {
+    type: String,
+    required: false,
+    default: defaultImage,
+  },
+  discount: {
+    type: Number,
+    required: false,
+  },
+  isHot: {
+    type: Boolean,
+    required: false,
+  },
+});
+
+const isInStock = ref(props.isInStock);
+
+watchEffect(() => {
+  isInStock.value = props.isInStock;
+});
+</script>
+
+<template>
+  <div class="product-card" :class="{ 'product-card--sold': !isInStock }">
+    <div class="product-card__image">
+      <img :src="imageUrl" alt="картинка товара" />
+      <div class="product-card__labels">
+        <div v-show="isHot" class="product-card__isHot">
+          <span>Хит продаж</span>
+          <IconHot />
+        </div>
+        <div v-show="discount" class="product-card__discount">
+          {{ discount }}%
+        </div>
+      </div>
+    </div>
+    <div class="product-card__content">
+      <div class="product-card__info">
+        <div class="product-card__seller">{{ seller }}</div>
+        <a class="product-card__title" href="#">{{ title }}</a>
+      </div>
+      <div class="product-card__price" v-show="isInStock">
+        <span class="product-card__price-current">{{ price }} ₽</span>
+        <span class="product-card__price-old" v-show="oldPrice">
+          {{ oldPrice }} ₽
+        </span>
+      </div>
+      <div class="product-card__btn">
+        <ProductButton name="buy" v-if="isInStock" />
+        <ProductButton name="notify" v-else />
+      </div>
+    </div>
+  </div>
+</template>
+
+<style lang="scss">
+$gap: 16px;
+$gap-small: calc($gap / 2);
+
+.product-card {
+  display: grid;
+  grid-template-rows: 200px auto;
+  gap: $gap;
+
+  &:hover {
+    cursor: pointer;
+
+    .product-card__title {
+      color: $color-font-hover;
+    }
+  }
+
+  &:not(.product-card--sold):hover {
+    .product-card__image img {
+      transform: scale(1.37);
+    }
+  }
+}
+
+.product-card__image {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #f8f8fa;
+
+  img {
+    transition: all 0.3s;
+  }
+}
+
+.product-card--sold .product-card__image {
+  background-color: #fbfbfc;
+  img {
+    opacity: 0.5;
+  }
+}
+
+.product-card__labels {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 12px;
+}
+
+.product-card__isHot {
+  display: flex;
+  align-items: center;
+  height: 32px;
+  padding: 0 $gap-small;
+  border: 1px solid $scroll-bar;
+  border-radius: 4px;
+  background-color: $color-white;
+
+  span {
+    margin-right: calc($gap-small / 2);
+  }
+}
+
+.product-card__discount {
+  padding: 6px 10px;
+  font-size: $font-size-normal;
+  line-height: 100%;
+  font-weight: 700;
+  color: $color-white;
+  border-radius: 4px;
+  background-color: $color-brand;
+}
+
+.product-card__content {
+  @include list(c, $gap);
+  justify-content: space-between;
+}
+
+.product-card__info {
+  display: grid;
+  gap: $gap-small;
+}
+
+.product-card__seller {
+  color: $color-font-second;
+}
+
+.product-card__price {
+  display: flex;
+  align-items: center;
+}
+
+.product-card__price-current {
+  margin-right: $gap-small;
+  font-size: $font-size-big;
+  line-height: $font-size-normal;
+  font-weight: 700;
+}
+
+.product-card__price-old {
+  font-size: $font-size-small;
+  line-height: $font-size-normal;
+  color: $color-font-second;
+  text-decoration: line-through;
+}
+
+.product-card__btn {
+  display: flex;
+}
+</style>
