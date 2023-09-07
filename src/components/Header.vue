@@ -22,18 +22,19 @@ import Search from "./Search.vue";
 .header {
   display: flex;
   align-items: stretch;
-  padding: 12px 0;
+  padding: $gap-header / 2 0;
+  margin-bottom: $gap-header;
   font-family: "Inter", sans-serif;
   font-size: 14px;
 }
 .header__catalog {
   display: flex;
   align-items: center;
-  margin-left: 8px;
-  padding: 8px 24px;
+  margin-left: $gap-header-small;
+  padding: $gap-header-small $gap-header;
   font-weight: 500;
   border: 1px solid $color-border;
-  border-radius: 8px;
+  border-radius: $gap-header-small;
 
   &:hover {
     color: $color-font-main;

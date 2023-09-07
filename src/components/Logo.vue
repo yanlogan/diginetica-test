@@ -11,13 +11,13 @@
 .logo {
   display: flex;
   align-items: center;
-  height: 48px;
-  padding: 0 24px;
+  height: $gap-header * 2;
+  padding: 0 $gap-header;
   font-family: "Inter", sans-serif;
   line-height: normal;
 }
 
 .logo__img {
-  margin-right: 8px;
+  margin-right: $gap-header-small;
 }
 </style>

@@ -48,7 +48,7 @@ const resetForm = () => {
   display: flex;
   align-items: center;
   flex-grow: 1;
-  margin: 0 24px;
+  margin: 0 $gap-header;
   padding: 4px 4px 4px 16px;
   border: 1px solid $color-border;
   border-radius: 10px;
@@ -63,7 +63,7 @@ const resetForm = () => {
   display: flex;
   align-items: center;
   flex-grow: 1;
-  margin: 0 8px;
+  margin: 0 $gap-header-small;
 }
 .search__input {
   width: 100%;
@@ -74,7 +74,7 @@ const resetForm = () => {
   }
 }
 .search__resetBtn {
-  margin-left: 8px;
+  margin-left: $gap-header-small;
 }
 .search__actionBtn {
   padding: 12px 16px;
@@ -83,6 +83,6 @@ const resetForm = () => {
   line-height: 100%;
   color: $color-white;
   background-color: $color-border-hover;
-  border-radius: 8px;
+  border-radius: $gap-header-small;
 }
 </style>
