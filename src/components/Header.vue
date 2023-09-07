@@ -23,9 +23,8 @@ import Search from "./Search.vue";
   display: flex;
   align-items: stretch;
   padding: $gap-header / 2 0;
-  margin-bottom: $gap-header;
   font-family: "Inter", sans-serif;
-  font-size: 14px;
+  font-size: $font-size-normal;
 }
 .header__catalog {
   display: flex;

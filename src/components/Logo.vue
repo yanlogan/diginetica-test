@@ -14,6 +14,7 @@
   height: $gap-header * 2;
   padding: 0 $gap-header;
   font-family: "Inter", sans-serif;
+  font-size: $font-size-big;
   line-height: normal;
 }
 

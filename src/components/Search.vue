@@ -67,6 +67,7 @@ const resetForm = () => {
 }
 .search__input {
   width: 100%;
+  font-size: $font-size-big;
   line-height: 150%;
 
   &::placeholder {
