@@ -16,11 +16,9 @@ $font-size-normal: 14px;
 $font-size-small: 12px;
 $font-size-big: 16px;
 
-$gap-main: 36px;
 $gap-header: 24px;
 $gap-header-small: 8px;
-$gap-cards: 24px;
-$gap-cards-mobile: 12px;
+
 
 @mixin list-reset {
   margin: 0;

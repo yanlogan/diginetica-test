@@ -1,5 +1,6 @@
 <script setup>
 import Header from "./components/Header.vue";
+import SearchResults from "./components/SearchResults.vue";
 </script>
 
 <template>
@@ -11,12 +12,27 @@ import Header from "./components/Header.vue";
     filters
   </aside>
   <main class="search-results-wrapper">
-    <!-- search results -->
-    search results
+    <SearchResults />
   </main>
 </template>
 
-<style scoped>
+<style lang="scss">
+$padding: 100px;
+$gap-row: 24px;
+$gap-column: 36px;
+
+#app {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "filters results";
+  grid-template-columns: 280px auto;
+  gap: $gap-row $gap-column;
+  max-width: calc(1720px + $padding * 2);
+  margin: 0 auto;
+  padding: 0 $padding $gap-column;
+}
+
 .header-wrapper {
   grid-area: header;
 }

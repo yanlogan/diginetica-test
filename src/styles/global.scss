@@ -1,6 +1,10 @@
 @use "fonts";
 @use "variables"as *;
 
+* {
+  box-sizing: border-box;
+}
+
 :root {
   font-family: 'PT Sans', Helvetica, Arial, sans-serif;
   font-size: 14px;
@@ -22,18 +26,6 @@ body {
   min-height: 100vh;
 }
 
-#app {
-  display: grid;
-  grid-template-areas:
-    "header header"
-    "filters results";
-  grid-template-columns: 280px auto;
-  gap: $gap-header $gap-main;
-  max-width: 1720px;
-  margin: 0 auto;
-  padding: 0 100px $gap-main;
-}
-
 a {
   color: $color-font-main;
   text-decoration: inherit;
@@ -51,10 +43,13 @@ a {
 button {
   all: unset;
   cursor: pointer;
+  transition: all .3s;
 }
 
 .btn {
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 input {
