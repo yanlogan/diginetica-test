@@ -46,3 +46,17 @@ button {
   all: unset;
   cursor: pointer;
 }
+
+.btn {
+  display: flex;
+}
+
+input {
+  all: unset;
+}
+
+input[type="search"] {
+  &::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+  }
+}
