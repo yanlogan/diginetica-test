@@ -23,9 +23,15 @@ body {
 }
 
 #app {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "filters results";
+  grid-template-columns: 280px auto;
+  gap: $gap-header $gap-main;
   max-width: 1720px;
   margin: 0 auto;
-  padding: 0 100px 36px;
+  padding: 0 100px $gap-main;
 }
 
 a {
