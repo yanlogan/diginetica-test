@@ -19,7 +19,7 @@ const resetForm = () => {
       <input
         ref="inputField"
         type="search"
-        name="header-search"
+        name=""
         id="header-search"
         class="search__input"
         placeholder="Поиск по 100 000 товаров"
