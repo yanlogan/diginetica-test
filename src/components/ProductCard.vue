@@ -122,7 +122,7 @@ $label-offset: 12px;
   &:hover {
     cursor: pointer;
 
-    .product-card__title {
+    .product-card__title:not(:visited) {
       color: $color-font-hover;
     }
   }
@@ -213,6 +213,14 @@ $label-offset: 12px;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+
+  &:not(:visited):hover {
+    color: $color-font-hover;
+  }
+
+  &:visited {
+    color: $color-font-history;
+  }
 }
 
 .product-card__price {
