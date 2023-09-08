@@ -6,6 +6,7 @@ import Search from "./Search.vue";
 <template>
   <header class="header">
     <Logo />
+    //TODO: convert to button
     <a class="header__catalog" href="#">Каталог</a>
     <Search />
     <nav class="header__nav">
