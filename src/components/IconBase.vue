@@ -4,6 +4,7 @@ import IconRemove from "./icons/IconRemove.vue";
 import IconClose from "./icons/IconClose.vue";
 import IconDropdown from "./icons/IconDropdown.vue";
 import IconArrow from "./icons/IconArrow.vue";
+import IconBack from "./icons/IconBack.vue";
 import IconHot from "./icons/IconHot.vue";
 
 const icons = {
@@ -12,6 +13,7 @@ const icons = {
   close: IconClose,
   dropdown: IconDropdown,
   arrow: IconArrow,
+  back: IconBack,
   hot: IconHot,
 };
 
