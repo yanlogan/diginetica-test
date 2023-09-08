@@ -40,6 +40,10 @@ const props = defineProps({
 <style lang="scss">
 .filter-section {
   margin-bottom: 28px;
+
+  ul {
+    @include list(c);
+  }
 }
 
 .filter-section__header {
@@ -62,5 +66,10 @@ const props = defineProps({
   font-size: $font-size-small;
   line-height: 100%;
   text-decoration: underline;
+
+  &:hover,
+  &:active {
+    color: $color-font-main;
+  }
 }
 </style>

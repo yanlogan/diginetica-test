@@ -1,8 +1,10 @@
 <script setup>
 import Header from "./components/Header.vue";
+import Filters from "./components/Filters.vue";
 import SearchResults from "./components/SearchResults.vue";
 
 import products from "./data/products.json";
+import categories from "./data/categories.json";
 </script>
 
 <template>
@@ -10,8 +12,7 @@ import products from "./data/products.json";
     <Header />
   </header>
   <aside class="filters-wrapper">
-    <!-- filters -->
-    filters
+    <Filters :categories="categories" />
   </aside>
   <main class="search-results-wrapper">
     <SearchResults :source="products" />
