@@ -4,7 +4,6 @@ import defaultImage from "../assets/images/product-default.png";
 import IconHot from "./icons/IconHot.vue";
 import ProductButton from "./ProductButton.vue";
 
-// TODO: add title trimming if taking >2 lines
 // TODO: add discount & oldPrice validation
 
 const props = defineProps({
@@ -182,6 +181,14 @@ $label-offset: 12px;
 
 .product-card__seller {
   color: $color-font-second;
+}
+
+.product-card__title {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .product-card__price {
