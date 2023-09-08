@@ -11,7 +11,11 @@ const props = defineProps({
 });
 
 const searchResults = computed(() => {
-  return props.source;
+  return props.source.map((product) => {
+    return Object.fromEntries(
+      Object.entries(product).filter(([key, value]) => value !== "")
+    );
+  });
 });
 </script>
 
@@ -22,6 +26,7 @@ const searchResults = computed(() => {
       :key="product.id"
       :title="product.title"
       :seller="product.seller"
+      :imageUrl="product.imageUrl"
       :price="product.price"
       :old-price="product.oldPrice"
       :is-in-stock="product.isInStock"

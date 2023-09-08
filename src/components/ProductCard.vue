@@ -32,6 +32,10 @@ const props = defineProps({
     type: String,
     required: false,
     default: defaultImage,
+    validator: (value) => {
+      const urlPattern = /^https?:\/\/\S+\.(png|jpe?g|webp|svg)$/i;
+      return urlPattern.test(value) || value === defaultImage;
+    },
   },
   discount: {
     type: Number,
@@ -139,6 +143,8 @@ $label-offset: 12px;
   background-color: #f8f8fa;
 
   img {
+    max-height: 100%;
+    width: auto;
     transition: all 0.3s;
   }
 }
