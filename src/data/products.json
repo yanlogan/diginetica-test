@@ -7,7 +7,7 @@
     "price": 87920,
     "oldPrice": 95920,
     "imageUrl": "",
-    "discount": 15,
+    "discount": 150,
     "isHot": true
   },
   {
@@ -60,7 +60,7 @@
     "seller": "Dell",
     "isInStock": true,
     "price": 79920,
-    "oldPrice": 87920,
+    "oldPrice": 79920,
     "imageUrl": "",
     "discount": 0,
     "isHot": false

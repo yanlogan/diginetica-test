@@ -1,10 +1,8 @@
 <script setup>
-import { ref, watchEffect } from "vue";
+import { ref, watchEffect, computed } from "vue";
 import defaultImage from "../assets/images/product-default.png";
 import IconHot from "./icons/IconHot.vue";
 import ProductButton from "./ProductButton.vue";
-
-// TODO: add discount & oldPrice validation
 
 const props = defineProps({
   title: {
@@ -23,10 +21,12 @@ const props = defineProps({
   price: {
     type: Number,
     required: true,
+    validator: (value) => value >= 0,
   },
   oldPrice: {
     type: Number,
     required: false,
+    validator: (value) => value >= 0,
   },
   imageUrl: {
     type: String,
@@ -36,11 +36,24 @@ const props = defineProps({
   discount: {
     type: Number,
     required: false,
+    validator: (value) => value >= 0 && value <= 100,
   },
   isHot: {
     type: Boolean,
     required: false,
   },
+});
+
+const isValidPrice = computed(() => {
+  return props.price >= 0;
+});
+
+const isValidOldPrice = computed(() => {
+  return props.oldPrice >= 0 && props.oldPrice > props.price;
+});
+
+const isValidDiscount = computed(() => {
+  return props.discount >= 0 && props.discount <= 100;
 });
 
 // simulation of a product being sold real-time & changing the inStock status
@@ -61,7 +74,7 @@ watchEffect(() => {
           <IconHot />
         </div>
         <div
-          v-show="discount"
+          v-show="discount && isValidDiscount"
           class="product-card__label product-card__discount"
         >
           {{ discount }}%
@@ -74,8 +87,13 @@ watchEffect(() => {
         <a class="product-card__title" href="#">{{ title }}</a>
       </div>
       <div class="product-card__price" v-show="isInStock">
-        <span class="product-card__price-current">{{ price }} ₽</span>
-        <span class="product-card__price-old" v-show="oldPrice">
+        <span class="product-card__price-current" v-show="isValidPrice"
+          >{{ price }} ₽</span
+        >
+        <span
+          class="product-card__price-old"
+          v-show="oldPrice && isValidOldPrice"
+        >
           {{ oldPrice }} ₽
         </span>
       </div>
