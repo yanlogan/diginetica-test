@@ -1,26 +1,32 @@
 <script setup>
+import { computed } from "vue";
 import ProductCard from "./ProductCard.vue";
+
+const props = defineProps({
+  source: {
+    type: Array,
+    required: true,
+    default: () => [],
+  },
+});
+
+const searchResults = computed(() => {
+  return props.source;
+});
 </script>
 
 <template>
   <section class="search-results">
     <ProductCard
-      title="Полное название товара в несколько строк для вида с обрывом в конце..."
-      seller="Бренд"
-      :price="5990"
-      :old-price="5990"
-      :is-in-stock="true"
-      :discount="25"
-      :is-hot="true"
-    />
-    <ProductCard
-      title="Полное название товара в несколько строк для вида с обрывом в конце..."
-      seller="Бренд"
-      :price="5990"
-      :old-price="5990"
-      :is-in-stock="false"
-      :discount="25"
-      :is-hot="true"
+      v-for="product in searchResults"
+      :key="product.id"
+      :title="product.title"
+      :seller="product.seller"
+      :price="product.price"
+      :old-price="product.oldPrice"
+      :is-in-stock="product.isInStock"
+      :discount="product.discount"
+      :is-hot="product.isHot"
     />
   </section>
 </template>

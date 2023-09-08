@@ -1,6 +1,8 @@
 <script setup>
 import Header from "./components/Header.vue";
 import SearchResults from "./components/SearchResults.vue";
+
+import products from "./data/products.json";
 </script>
 
 <template>
@@ -12,7 +14,7 @@ import SearchResults from "./components/SearchResults.vue";
     filters
   </aside>
   <main class="search-results-wrapper">
-    <SearchResults />
+    <SearchResults :source="products" />
   </main>
 </template>
 
