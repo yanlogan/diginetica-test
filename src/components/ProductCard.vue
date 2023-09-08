@@ -5,6 +5,7 @@ import IconHot from "./icons/IconHot.vue";
 import ProductButton from "./ProductButton.vue";
 
 // TODO: add title trimming if taking >2 lines
+// TODO: add discount & oldPrice validation
 
 const props = defineProps({
   title: {
@@ -43,6 +44,7 @@ const props = defineProps({
   },
 });
 
+// simulation of a product being sold real-time & changing the inStock status
 const isInStock = ref(props.isInStock);
 
 watchEffect(() => {
