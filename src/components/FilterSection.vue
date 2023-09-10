@@ -10,7 +10,7 @@ const props = defineProps({
     required: false,
     default: "",
   },
-  needsClearSelection: {
+  clearSelection: {
     type: Boolean,
     required: false,
     default: false,
@@ -19,22 +19,23 @@ const props = defineProps({
 </script>
 
 <template>
-  <section class="filter-section" :class="classes">
+  <form class="filter-section" :class="classes">
     <header
       class="filter-section__header"
-      :class="{ 'filter-section__header--clear': needsClearSelection }"
+      :class="{ 'filter-section__header--clear': clearSelection }"
       v-show="title"
     >
       <span class="filter-section__title" v-show="title">{{ title }}</span>
       <button
+        type="reset"
         class="filter-section__clearSelectionBtn"
-        v-show="needsClearSelection"
+        v-show="clearSelection"
       >
         Очистить
       </button>
     </header>
     <slot></slot>
-  </section>
+  </form>
 </template>
 
 <style lang="scss">
