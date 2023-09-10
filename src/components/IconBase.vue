@@ -7,6 +7,7 @@ import IconDropdown from "./icons/IconDropdown.vue";
 import IconArrow from "./icons/IconArrow.vue";
 import IconBack from "./icons/IconBack.vue";
 import IconHot from "./icons/IconHot.vue";
+import IconCheckbox from "./icons/IconCheckbox.vue";
 
 const icons = {
   search: IconSearch,
@@ -17,6 +18,7 @@ const icons = {
   arrow: IconArrow,
   back: IconBack,
   hot: IconHot,
+  checkbox: IconCheckbox,
 };
 
 export default {
