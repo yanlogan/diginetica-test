@@ -9,7 +9,13 @@ import Search from "./Search.vue";
     <button type="button" id="header-catalog" class="header__catalog">
       Каталог
     </button>
-    <Search />
+    <Search
+      id="header-search"
+      :show-search-btn="true"
+      placeholder="Поиск по 100 000 товаров"
+      :isHeader="true"
+      classes="header__search"
+    />
     <nav class="header__nav">
       <ul>
         <li><a href="#">Информация о компании</a></li>
@@ -41,6 +47,11 @@ import Search from "./Search.vue";
     color: $color-font-main;
     border-color: $color-border-hover;
   }
+}
+.header__search {
+  margin: 0 $gap-header;
+  padding: 4px 4px 4px 16px;
+  border-radius: 10px;
 }
 .header__nav {
   display: flex;

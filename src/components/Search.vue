@@ -2,41 +2,70 @@
 import { ref, computed } from "vue";
 import IconBase from "./IconBase.vue";
 
+const props = defineProps({
+  id: {
+    type: String,
+    required: true,
+    default: "",
+  },
+  showSearchBtn: {
+    type: Boolean,
+    required: false,
+    default: false,
+  },
+  placeholder: {
+    type: String,
+    required: false,
+    default: "",
+  },
+  isHeader: {
+    type: Boolean,
+    required: false,
+    default: false,
+  },
+  classes: {
+    type: String,
+    required: false,
+    default: "",
+  },
+});
+
 const inputField = ref(null);
 const inputValue = ref("");
 const isInputNotEmpty = computed(() => inputValue.value.length > 0);
 
-const resetForm = () => {
+const resetField = () => {
   inputValue.value = "";
   inputField.value.focus();
 };
 </script>
 
 <template>
-  <form class="search" @reset="resetForm">
-    <IconBase name="search" />
+  <form class="search" :class="classes">
+    <IconBase :name="isHeader ? 'searchHeader' : 'search'" />
     <div class="search__input-wrapper">
       <input
         ref="inputField"
         type="search"
         name=""
-        id="header-search"
+        :id="id"
         class="search__input"
-        placeholder="Поиск по 100 000 товаров"
+        :placeholder="placeholder"
         v-model="inputValue"
       />
       <button
-        type="reset"
+        type="button"
+        @click="resetField"
         class="search__resetBtn btn"
         v-show="isInputNotEmpty"
       >
-        <IconBase name="remove" />
+        <IconBase name="remove" :size="isHeader ? 24 : 16" />
       </button>
     </div>
     <button
       type="submit"
       class="search__actionBtn btn"
-      v-show="isInputNotEmpty"
+      v-show="isInputNotEmpty && showSearchBtn"
     >
       Найти
     </button>
@@ -48,10 +77,7 @@ const resetForm = () => {
   display: flex;
   align-items: center;
   flex-grow: 1;
-  margin: 0 $gap-header;
-  padding: 4px 4px 4px 16px;
   border: 1px solid $color-border;
-  border-radius: 10px;
   transition: all 0.3s;
 
   &:hover,
