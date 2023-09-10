@@ -1,4 +1,5 @@
 <script>
+import IconSearchHeader from "./icons/IconSearchHeader.vue";
 import IconSearch from "./icons/IconSearch.vue";
 import IconRemove from "./icons/IconRemove.vue";
 import IconClose from "./icons/IconClose.vue";
@@ -9,6 +10,7 @@ import IconHot from "./icons/IconHot.vue";
 
 const icons = {
   search: IconSearch,
+  searchHeader: IconSearchHeader,
   remove: IconRemove,
   close: IconClose,
   dropdown: IconDropdown,
@@ -26,6 +28,10 @@ export default {
         return Object.prototype.hasOwnProperty.call(icons, value);
       },
     },
+    size: {
+      type: Number,
+      required: false,
+    },
   },
 
   computed: {
@@ -38,7 +44,7 @@ export default {
 
 <template>
   <i class="icon" :class="`icon-${name}`">
-    <component :is="iconComponent" role="presentation" />
+    <component :is="iconComponent" role="presentation" :size="size" />
   </i>
 </template>
 
