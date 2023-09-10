@@ -61,7 +61,7 @@ const validateInput = (e) => {
   }
 };
 
-const resizeInput = function () {
+const resizeInput = () => {
   if (!priceInput.value) return;
 
   const tempEl = document.createElement("span");
@@ -77,13 +77,17 @@ const resizeInput = function () {
   priceInput.value.style.width = `${width}px`;
 };
 
+const setFocus = () => {
+  priceInput.value.focus();
+};
+
 onMounted(() => {
   resizeInput();
 });
 </script>
 
 <template>
-  <div class="price-input" :class="classes">
+  <div class="price-input" :class="classes" @click="setFocus">
     <label :for="id">{{ label }}</label>
     <input
       type="text"
@@ -105,15 +109,20 @@ onMounted(() => {
   display: flex;
   align-items: center;
   width: 100%;
-  padding: 10px 8px;
-  background-color: $color-white;
+  padding: 9px 7px;
   border: 1px solid $color-border;
   border-radius: 4px;
+  transition: all 0.3s;
+
+  &:hover,
+  &:focus-within {
+    border-color: $color-border-hover;
+  }
 }
 
 .price-input input {
   width: 100%;
-  margin-right: 6px;
+  margin-right: 4px;
 }
 
 .price-input label {
