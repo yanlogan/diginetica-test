@@ -1,6 +1,7 @@
 <script setup>
 import FilterSection from "./FilterSection.vue";
 import InputPrice from "./InputPrice.vue";
+// TODO: price-from must be <= price-to
 </script>
 
 <template>
