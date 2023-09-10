@@ -52,6 +52,11 @@ import Search from "./Search.vue";
   margin: 0 $gap-header;
   padding: 4px 4px 4px 16px;
   border-radius: 10px;
+
+  .search__input {
+    font-size: $font-size-big;
+    line-height: 150%;
+  }
 }
 .header__nav {
   display: flex;

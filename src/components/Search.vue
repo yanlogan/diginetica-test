@@ -89,18 +89,17 @@ const resetField = () => {
   display: flex;
   align-items: center;
   flex-grow: 1;
-  margin: 0 $gap-header-small;
+  margin-left: $gap-header-small;
 }
 .search__input {
   width: 100%;
-  font-size: $font-size-big;
-  line-height: 150%;
 
   &::placeholder {
     color: $color-font-second;
   }
 }
-.search__resetBtn {
+.search__resetBtn,
+.search__actionBtn {
   margin-left: $gap-header-small;
 }
 .search__actionBtn {
