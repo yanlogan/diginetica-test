@@ -1,6 +1,7 @@
 <script setup>
 import { computed } from "vue";
 import FilterSection from "./FilterSection.vue";
+import FilterCount from "./FilterCount.vue";
 import IconBase from "./IconBase.vue";
 
 const props = defineProps({
@@ -14,8 +15,6 @@ const props = defineProps({
 const categories = computed(() => {
   return props.categories;
 });
-
-//TODO: make category count dynamic
 </script>
 
 <template>
@@ -32,7 +31,7 @@ const categories = computed(() => {
             <span class="filter-category__title">{{ category.title }}</span>
           </div>
 
-          <span class="filter-category__count">3</span>
+          <FilterCount classes="filter-category__count" />
         </a>
         <ul v-show="category.children">
           <li
@@ -47,7 +46,7 @@ const categories = computed(() => {
                 childCategory.title
               }}</span>
 
-              <span class="filter-category__count">3</span>
+              <FilterCount classes="filter-category__count" />
             </a>
           </li>
         </ul>
@@ -96,10 +95,4 @@ const categories = computed(() => {
 // white-space: nowrap;
 // overflow: visible;
 // }
-
-.filter-category__count {
-  color: $color-font-second;
-  font-size: $font-size-small;
-  line-height: $font-size-normal;
-}
 </style>
