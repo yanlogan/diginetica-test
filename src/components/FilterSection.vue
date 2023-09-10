@@ -49,6 +49,7 @@ const props = defineProps({
 .filter-section__header {
   display: flex;
   justify-content: center;
+  margin-bottom: 16px;
 
   &--clear {
     justify-content: space-between;
