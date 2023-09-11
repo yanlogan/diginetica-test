@@ -31,7 +31,7 @@ const toggleCheckbox = () => {
       :id="id"
       type="checkbox"
       class="checkbox__input"
-      :checked="checkboxValue"
+      :checked="checkboxValue.value"
     />
     <div class="checkbox">
       <IconBase name="checkbox" />
