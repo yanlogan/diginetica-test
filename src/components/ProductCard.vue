@@ -90,20 +90,22 @@ watchEffect(() => {
         <div class="product-card__seller">{{ seller }}</div>
         <a class="product-card__title" href="#">{{ title }}</a>
       </div>
-      <div class="product-card__price" v-show="isInStock">
-        <span class="product-card__price-current" v-show="isValidPrice"
-          >{{ price }} ₽</span
-        >
-        <span
-          class="product-card__price-old"
-          v-show="oldPrice && isValidOldPrice"
-        >
-          {{ oldPrice }} ₽
-        </span>
-      </div>
-      <div class="product-card__btn">
-        <ProductButton name="buy" v-if="isInStock" />
-        <ProductButton name="notify" v-else />
+      <div class="product-card__bottom">
+        <div class="product-card__price" v-show="isInStock">
+          <span class="product-card__price-current" v-show="isValidPrice"
+            >{{ price }} ₽</span
+          >
+          <span
+            class="product-card__price-old"
+            v-show="oldPrice && isValidOldPrice"
+          >
+            {{ oldPrice }} ₽
+          </span>
+        </div>
+        <div class="product-card__btn">
+          <ProductButton name="buy" v-if="isInStock" />
+          <ProductButton name="notify" v-else />
+        </div>
       </div>
     </div>
   </div>
@@ -193,8 +195,12 @@ $label-offset: 12px;
   background-color: $color-brand;
 }
 
-.product-card__content {
+.product-card__content,
+.product-card__bottom {
   @include list(c, $gap);
+}
+
+.product-card__content {
   justify-content: space-between;
 }
 
