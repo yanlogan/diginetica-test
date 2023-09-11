@@ -1,0 +1,42 @@
+[
+  {
+    "id": 0,
+    "title": "Apple",
+    "url": ""
+  },
+  {
+    "id": 1,
+    "title": "Samsung",
+    "url": ""
+  },
+  {
+    "id": 3,
+    "title": "Sony",
+    "url": ""
+  },
+  {
+    "id": 4,
+    "title": "Nintendo",
+    "url": ""
+  },
+  {
+    "id": 5,
+    "title": "Dell",
+    "url": ""
+  },
+  {
+    "id": 8,
+    "title": "Google",
+    "url": ""
+  },
+  {
+    "id": 9,
+    "title": "Amazon",
+    "url": ""
+  },
+  {
+    "id": 10,
+    "title": "Fitbit",
+    "url": ""
+  }
+]

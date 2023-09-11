@@ -2,11 +2,16 @@
 import { ref, computed } from "vue";
 import FilterCategories from "./FilterCategories.vue";
 import FilterPrice from "./FilterPrice.vue";
-import FilterSeller from "./FilterSeller.vue";
+import FilterSellers from "./FilterSeller.vue";
 import FilterSize from "./FilterSize.vue";
 
 const props = defineProps({
   categories: {
+    type: Array,
+    required: true,
+    default: () => [],
+  },
+  sellers: {
     type: Array,
     required: true,
     default: () => [],
@@ -21,13 +26,17 @@ const categories = computed(() => {
     return category.title !== ""; // && category.url !== ""
   });
 });
+
+const sellers = computed(() => {
+  return props.sellers;
+});
 </script>
 
 <template>
   <section class="filters">
     <FilterCategories :categories="categories" />
     <FilterPrice />
-    <FilterSeller />
+    <FilterSellers :sellers="sellers" />
     <FilterSize />
   </section>
 </template>
