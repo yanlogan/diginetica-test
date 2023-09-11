@@ -19,6 +19,10 @@ $font-size-big: 16px;
 $gap-header: 24px;
 $gap-header-small: 8px;
 
+$laptop-width: 1440px;
+$tablet-width: 1280px;
+$mobile-width: 968px;
+
 
 @mixin list-reset {
   margin: 0;
@@ -50,6 +54,24 @@ $gap-header-small: 8px;
 
 @mixin hover {
   &:not([disabled]):hover {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media screen and (max-width: #{$laptop-width}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (max-width: #{$tablet-width}) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media screen and (max-width: #{$mobile-width}) {
     @content;
   }
 }
