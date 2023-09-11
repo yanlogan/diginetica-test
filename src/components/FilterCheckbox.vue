@@ -43,20 +43,19 @@ const props = defineProps({
       placeholder="Поиск"
       v-show="search"
     />
-    <div class="filter-checkbox__search-results">
+    <div :class="{ 'filter-checkbox__search-results': search }">
       <ul class="filter-checkbox__list">
         <li
           v-for="option in source"
           :key="option.id"
           class="filter-checkbox__option"
         >
-          <Checkbox :id="option.id" />
-          <label :for="option.id">
+          <Checkbox :labeled="true">
             <span class="filter-checkbox__option-title">{{
               option.title
             }}</span>
-            <FilterCount classes="filter-checkbox__option-count" />
-          </label>
+            <FilterCount classes="filter-checkbox__option-count"
+          /></Checkbox>
         </li>
       </ul>
     </div>
@@ -82,12 +81,9 @@ ul.filter-checkbox__list {
   @include list;
   align-items: center;
 
-  label {
-    @include list;
-    align-items: center;
+  .checkbox__label {
     width: 100%;
     padding-right: 16px;
-    cursor: pointer;
   }
 }
 
