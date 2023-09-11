@@ -14,7 +14,7 @@ const count = ref(0);
 </script>
 
 <template>
-  <span class="filter-count" :classes="classes">{{ count }}</span>
+  <span class="filter-count" :class="classes">{{ count }}</span>
 </template>
 
 <style lang="scss">
