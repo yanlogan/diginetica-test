@@ -2,8 +2,7 @@
 import { ref, computed } from "vue";
 import FilterCategories from "./FilterCategories.vue";
 import FilterPrice from "./FilterPrice.vue";
-import FilterSellers from "./FilterSellers.vue";
-import FilterSize from "./FilterSize.vue";
+import FilterCheckbox from "./FilterCheckbox.vue";
 
 const props = defineProps({
   categories: {
@@ -36,7 +35,12 @@ const sellers = computed(() => {
   <section class="filters">
     <FilterCategories :categories="categories" />
     <FilterPrice />
-    <FilterSellers :sellers="sellers" />
+    <FilterCheckbox
+      title="Бренд"
+      :clear-selection="true"
+      :source="sellers"
+      :search="true"
+    />
     <FilterSize />
   </section>
 </template>
