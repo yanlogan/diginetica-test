@@ -5,6 +5,11 @@ import FilterPrice from "./FilterPrice.vue";
 import FilterCheckbox from "./FilterCheckbox.vue";
 
 const props = defineProps({
+  currentCategory: {
+    type: Object,
+    required: true,
+    default: () => {},
+  },
   categories: {
     type: Array,
     required: true,
@@ -33,7 +38,10 @@ const categories = computed(() => {
 
 <template>
   <section class="filters">
-    <FilterCategories :categories="categories" />
+    <FilterCategories
+      :current-category="currentCategory.id"
+      :categories="categories"
+    />
     <FilterPrice />
     <FilterCheckbox
       title="Бренд"

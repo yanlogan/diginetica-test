@@ -10,6 +10,7 @@ import sellers from "./data/sellers.json";
 import sizes from "./data/sizes.json";
 
 const currentCategory = ref(categories[0]);
+console.log(currentCategory);
 </script>
 
 <template>
@@ -17,7 +18,12 @@ const currentCategory = ref(categories[0]);
     <Header />
   </header>
   <aside class="filters-wrapper">
-    <Filters :categories="categories" :sellers="sellers" :sizes="sizes" />
+    <Filters
+      :current-category="currentCategory"
+      :categories="categories"
+      :sellers="sellers"
+      :sizes="sizes"
+    />
   </aside>
   <main class="search-results-wrapper">
     <SearchResults :source="products" :category-title="currentCategory.title" />

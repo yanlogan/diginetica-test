@@ -5,6 +5,11 @@ import FilterCount from "./FilterCount.vue";
 import IconBase from "./IconBase.vue";
 
 const props = defineProps({
+  currentCategory: {
+    type: Number,
+    required: true,
+    default: 0,
+  },
   categories: {
     type: Array,
     required: true,
@@ -24,7 +29,10 @@ const categories = computed(() => {
         <a
           :href="category.url"
           class="filter-category"
-          :class="{ 'filter-category--parent': category.children }"
+          :class="{
+            'filter-category--parent': category.children,
+            'filter-category--active': props.currentCategory === category.id,
+          }"
         >
           <div>
             <IconBase name="back" v-show="category.children" />
@@ -92,6 +100,10 @@ const categories = computed(() => {
     .filter-category__count {
       color: $color-font-main;
     }
+  }
+
+  &--active:hover {
+    color: $color-font-main;
   }
 }
 //TODO: make title overflow ??
