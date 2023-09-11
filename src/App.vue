@@ -6,6 +6,7 @@ import SearchResults from "./components/SearchResults.vue";
 import products from "./data/products.json";
 import categories from "./data/categories.json";
 import sellers from "./data/sellers.json";
+import sizes from "./data/sizes.json";
 </script>
 
 <template>
@@ -13,7 +14,7 @@ import sellers from "./data/sellers.json";
     <Header />
   </header>
   <aside class="filters-wrapper">
-    <Filters :categories="categories" :sellers="sellers" />
+    <Filters :categories="categories" :sellers="sellers" :sizes="sizes" />
   </aside>
   <main class="search-results-wrapper">
     <SearchResults :source="products" />

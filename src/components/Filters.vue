@@ -15,6 +15,11 @@ const props = defineProps({
     required: true,
     default: () => [],
   },
+  sizes: {
+    type: Array,
+    required: true,
+    default: () => [],
+  },
 });
 
 //TODO: change FilterCategories on currentCategory update
@@ -24,10 +29,6 @@ const categories = computed(() => {
   return props.categories.filter((category) => {
     return category.title !== ""; // && category.url !== ""
   });
-});
-
-const sellers = computed(() => {
-  return props.sellers;
 });
 </script>
 
@@ -41,7 +42,7 @@ const sellers = computed(() => {
       :source="sellers"
       :search="true"
     />
-    <FilterSize />
+    <FilterCheckbox title="Размер" :source="sizes" />
   </section>
 </template>
 
