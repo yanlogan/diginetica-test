@@ -2,6 +2,14 @@
 import { ref } from "vue";
 import IconBase from "./IconBase.vue";
 
+const props = defineProps({
+  id: {
+    type: Number,
+    required: true,
+    default: "",
+  },
+});
+
 const checkboxValue = ref(false);
 const toggleCheckbox = () => {
   checkboxValue.value = !checkboxValue.value;
@@ -10,7 +18,12 @@ const toggleCheckbox = () => {
 
 <template>
   <div class="checkbox-wrapper" @click="toggleCheckbox">
-    <input type="checkbox" class="checkbox__input" :checked="checkboxValue" />
+    <input
+      :id="id"
+      type="checkbox"
+      class="checkbox__input"
+      :checked="checkboxValue"
+    />
     <div class="checkbox">
       <IconBase name="checkbox" />
     </div>
@@ -42,11 +55,9 @@ $size: 20px;
 
 .checkbox__input:checked + .checkbox {
   position: relative;
+  border: none;
 
   .icon {
-    position: absolute;
-    top: -1px;
-    left: -1px;
     opacity: 1;
     transition: all 0.3s;
   }
