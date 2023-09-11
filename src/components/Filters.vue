@@ -2,7 +2,7 @@
 import { ref, computed } from "vue";
 import FilterCategories from "./FilterCategories.vue";
 import FilterPrice from "./FilterPrice.vue";
-import FilterSellers from "./FilterSeller.vue";
+import FilterSellers from "./FilterSellers.vue";
 import FilterSize from "./FilterSize.vue";
 
 const props = defineProps({
