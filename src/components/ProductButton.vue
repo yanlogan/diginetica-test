@@ -37,7 +37,7 @@ export default {
 
 <style lang="scss">
 .product__btn {
-  padding: 12px 16px;
+  padding: 11px 15px;
   font-weight: 700;
   font-size: $font-size-normal;
   line-height: 100%;
