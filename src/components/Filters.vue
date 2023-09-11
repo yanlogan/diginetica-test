@@ -39,7 +39,7 @@ const categories = computed(() => {
 <template>
   <section class="filters">
     <FilterCategories
-      :current-category="currentCategory.id"
+      :current-category="currentCategory"
       :categories="categories"
     />
     <FilterPrice />

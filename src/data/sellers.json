@@ -1,42 +1,34 @@
 [
   {
     "id": 0,
-    "title": "Apple",
-    "url": ""
+    "title": "Атрибут"
   },
   {
     "id": 1,
-    "title": "Samsung",
-    "url": ""
+    "title": "Атрибут"
+  },
+  {
+    "id": 2,
+    "title": "Атрибут"
   },
   {
     "id": 3,
-    "title": "Sony",
-    "url": ""
+    "title": "Атрибут"
   },
   {
     "id": 4,
-    "title": "Nintendo",
-    "url": ""
+    "title": "Атрибут"
   },
   {
     "id": 5,
-    "title": "Dell",
-    "url": ""
+    "title": "Атрибут"
   },
   {
-    "id": 8,
-    "title": "Google",
-    "url": ""
+    "id": 6,
+    "title": "Атрибут"
   },
   {
-    "id": 9,
-    "title": "Amazon",
-    "url": ""
-  },
-  {
-    "id": 10,
-    "title": "Fitbit",
-    "url": ""
+    "id": 7,
+    "title": "Атрибут"
   }
 ]

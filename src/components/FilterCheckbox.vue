@@ -64,8 +64,9 @@ const props = defineProps({
 
 <style lang="scss">
 .filter-checkbox__search-results {
+  position: relative;
   height: 180px;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 .filter-checkbox__search {
   padding: 9px 11px;
