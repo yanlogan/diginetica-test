@@ -84,9 +84,14 @@ const categories = computed(() => {
   &:hover {
     color: $color-brand;
   }
-  &:active {
+  &:active,
+  &--active {
     color: $color-font-main;
     background-color: $color-font-bg;
+
+    .filter-category__count {
+      color: $color-font-main;
+    }
   }
 }
 //TODO: make title overflow ??
