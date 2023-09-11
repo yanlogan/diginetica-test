@@ -50,6 +50,7 @@ const props = defineProps({
 .filter-section__header {
   display: flex;
   justify-content: center;
+  align-items: baseline;
   margin-bottom: 16px;
 
   &--clear {
