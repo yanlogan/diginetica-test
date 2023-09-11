@@ -16,10 +16,20 @@ const props = defineProps({
     default: false,
   },
 });
+
+const resetForms = (e) => {
+  const insideForms = document.querySelectorAll(".filter-section form");
+
+  e.target.reset();
+
+  insideForms.forEach((form) => {
+    form.reset();
+  });
+};
 </script>
 
 <template>
-  <form class="filter-section" :class="classes">
+  <form class="filter-section" :class="classes" @reset="resetForms">
     <header
       class="filter-section__header"
       :class="{ 'filter-section__header--clear': clearSelection }"
