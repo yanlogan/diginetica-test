@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed } from "vue";
+import { computed } from "vue";
 import FilterCategories from "./FilterCategories.vue";
 import FilterPrice from "./FilterPrice.vue";
 import FilterCheckbox from "./FilterCheckbox.vue";
@@ -23,7 +23,6 @@ const props = defineProps({
 });
 
 //TODO: change FilterCategories on currentCategory update
-// const currentCategory = ref("");
 
 const categories = computed(() => {
   return props.categories.filter((category) => {

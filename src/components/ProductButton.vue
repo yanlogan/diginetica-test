@@ -37,6 +37,9 @@ export default {
 
 <style lang="scss">
 .product__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 11px 15px;
   font-weight: 700;
   font-size: $font-size-normal;
@@ -57,5 +60,9 @@ export default {
   width: 100%;
   color: $color-font-second;
   border-color: $color-font-second;
+
+  @include mobile {
+    padding: 11px 0;
+  }
 }
 </style>

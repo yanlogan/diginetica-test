@@ -120,6 +120,7 @@ $label-offset: 12px;
   display: grid;
   grid-template-rows: 200px auto;
   gap: $gap;
+  overflow: hidden;
 
   &:hover {
     cursor: pointer;
@@ -133,6 +134,11 @@ $label-offset: 12px;
     .product-card__image img {
       transform: scale(1.37);
     }
+  }
+
+  @include mobile {
+    gap: 12px;
+    border-radius: 4px;
   }
 }
 
@@ -198,6 +204,10 @@ $label-offset: 12px;
 .product-card__content,
 .product-card__bottom {
   @include list(c, $gap);
+
+  @include mobile {
+    @include list(c, 12px);
+  }
 }
 
 .product-card__content {

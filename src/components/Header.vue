@@ -1,6 +1,9 @@
 <script setup>
 import Logo from "./Logo.vue";
 import Search from "./Search.vue";
+import { useMedia } from "../composables/useMedia";
+
+const isMobile = useMedia("(max-width: 968px)");
 </script>
 
 <template>
@@ -12,7 +15,7 @@ import Search from "./Search.vue";
     <Search
       id="header-search"
       :show-search-btn="true"
-      placeholder="Поиск по 100 000 товаров"
+      :placeholder="isMobile ? '' : 'Поиск по 100 000 товаров'"
       :isHeader="true"
       classes="header__search"
     />
@@ -33,6 +36,20 @@ import Search from "./Search.vue";
   padding: calc($gap-header / 2) 0;
   font-family: "Inter", sans-serif;
   font-size: $font-size-normal;
+
+  @include laptop {
+    padding: calc($gap-header / 2) 28px;
+  }
+
+  @include mobile {
+    padding: 0;
+    padding-top: 8px;
+  }
+}
+.header .logo {
+  @include mobile {
+    display: none;
+  }
 }
 .header__catalog {
   display: flex;
@@ -47,6 +64,10 @@ import Search from "./Search.vue";
     color: $color-font-main;
     border-color: $color-border-hover;
   }
+
+  @include mobile {
+    display: none;
+  }
 }
 .header__search {
   margin: 0 $gap-header;
@@ -57,16 +78,26 @@ import Search from "./Search.vue";
     font-size: $font-size-big;
     line-height: 150%;
   }
+
+  @include mobile {
+    margin: 0;
+    padding: 0;
+  }
 }
 .header__nav {
   display: flex;
   align-items: center;
+  white-space: nowrap;
 
   ul {
     @include list(r, 20px);
     a:not(:hover) {
       color: #393939;
     }
+  }
+
+  @include tablet {
+    display: none;
   }
 }
 </style>
