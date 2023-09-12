@@ -76,10 +76,6 @@ const isTopLevel = ref(true);
   }
 
   ul > li > a {
-    padding: 0 16px 0 calc(32px - 8px);
-  }
-
-  .filter-category--top-level + ul > li > a {
     padding: 0 16px 0 32px;
   }
 }

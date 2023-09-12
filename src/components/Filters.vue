@@ -28,6 +28,7 @@ const props = defineProps({
 });
 
 //TODO: change FilterCategories on currentCategory update
+// ? return either top level categories or parent of the current category
 
 const categories = computed(() => {
   return props.categories.filter((category) => {
