@@ -19,14 +19,14 @@ const props = defineProps({
     default: true,
   },
   price: {
-    type: Number,
+    type: String,
     required: true,
-    validator: (value) => value >= 0,
+    default: "0",
   },
   oldPrice: {
-    type: Number,
+    type: String,
     required: false,
-    validator: (value) => value >= 0,
+    default: "0",
   },
   imageUrl: {
     type: String,
@@ -53,7 +53,8 @@ const isValidPrice = computed(() => {
 });
 
 const isValidOldPrice = computed(() => {
-  return props.oldPrice >= 0 && props.oldPrice > props.price;
+  // return props.oldPrice >= 0 && props.oldPrice > props.price;
+  return props.oldPrice >= 0;
 });
 
 const isValidDiscount = computed(() => {
@@ -92,15 +93,10 @@ watchEffect(() => {
       </div>
       <div class="product-card__bottom">
         <div class="product-card__price" v-show="isInStock">
-          <span class="product-card__price-current" v-show="isValidPrice"
-            >{{ price }} ₽</span
+          <span class="product-card__price-current">{{ price }} ₽</span>
+          <span class="product-card__price-old" v-show="oldPrice">
+            {{ oldPrice }} ₽</span
           >
-          <span
-            class="product-card__price-old"
-            v-show="oldPrice && isValidOldPrice"
-          >
-            {{ oldPrice }} ₽
-          </span>
         </div>
         <div class="product-card__btn">
           <ProductButton name="buy" v-if="isInStock" />
@@ -230,13 +226,17 @@ $label-offset: 12px;
   overflow: hidden;
   text-overflow: ellipsis;
 
-  &:not(:visited):hover {
+  &:hover {
     color: $color-font-hover;
   }
 
-  &:visited {
-    color: $color-font-history;
-  }
+  // &:not(:visited):hover {
+  //   color: $color-font-hover;
+  // }
+
+  // &:visited {
+  //   color: $color-font-history;
+  // }
 }
 
 .product-card__price {

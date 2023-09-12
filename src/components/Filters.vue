@@ -28,6 +28,7 @@ const props = defineProps({
 });
 
 //TODO: change FilterCategories on currentCategory update
+// ? return either top level categories or parent of the current category
 
 const categories = computed(() => {
   return props.categories.filter((category) => {
@@ -39,7 +40,7 @@ const categories = computed(() => {
 <template>
   <section class="filters">
     <FilterCategories
-      :current-category="currentCategory.id"
+      :current-category="currentCategory"
       :categories="categories"
     />
     <FilterPrice />

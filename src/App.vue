@@ -9,8 +9,7 @@ import categories from "./data/categories.json";
 import sellers from "./data/sellers.json";
 import sizes from "./data/sizes.json";
 
-const currentCategory = ref(categories[0]);
-console.log(currentCategory);
+const currentCategory = ref(categories[4].children[0]);
 </script>
 
 <template>

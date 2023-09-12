@@ -1,14 +1,14 @@
 <script setup>
-import { computed } from "vue";
+import { ref, computed } from "vue";
 import FilterSection from "./FilterSection.vue";
 import FilterCount from "./FilterCount.vue";
 import IconBase from "./IconBase.vue";
 
 const props = defineProps({
   currentCategory: {
-    type: Number,
+    type: Object,
     required: true,
-    default: 0,
+    default: () => {},
   },
   categories: {
     type: Array,
@@ -20,6 +20,8 @@ const props = defineProps({
 const categories = computed(() => {
   return props.categories;
 });
+
+const isTopLevel = ref(false);
 </script>
 
 <template>
@@ -31,11 +33,12 @@ const categories = computed(() => {
           class="filter-category"
           :class="{
             'filter-category--parent': category.children,
-            'filter-category--active': props.currentCategory === category.id,
+            active: props.currentCategory.id === category.id,
+            'filter-category--top-level': isTopLevel,
           }"
         >
           <div>
-            <IconBase name="back" v-show="category.children" />
+            <IconBase name="back" v-show="category.children && !isTopLevel" />
             <span class="filter-category__title">{{ category.title }}</span>
           </div>
 
@@ -49,6 +52,9 @@ const categories = computed(() => {
             <a
               :href="childCategory.url"
               class="filter-category filter-category--child"
+              :class="{
+                active: props.currentCategory.id === childCategory.id,
+              }"
             >
               <span class="filter-category__title">{{
                 childCategory.title
@@ -69,8 +75,8 @@ const categories = computed(() => {
     padding: 0 16px 0 8px;
   }
 
-  & ul > li > a {
-    padding: 0 16px 0 calc(32px - 8px);
+  ul > li > a {
+    padding: 0 16px 0 32px;
   }
 }
 .filter-category {
@@ -93,7 +99,7 @@ const categories = computed(() => {
     color: $color-brand;
   }
   &:active,
-  &--active {
+  &.active {
     color: $color-font-main;
     background-color: $color-font-bg;
 
@@ -102,7 +108,7 @@ const categories = computed(() => {
     }
   }
 
-  &--active:hover {
+  &.active:hover {
     color: $color-font-main;
   }
 }
