@@ -108,7 +108,7 @@ const getProductIds = () => {
 getProductIds();
 ```
 
-7. Написать функцию для получения всех характеристики товара в консоли браузера в виде объекта в формате attributeName: value на странице [https://nir-vanna.ru/product/smesitel-bravat-art-f175109c-dlya-rakoviny/]([https://nir-vanna.ru/product/smesitel-bravat-art-f175109c-dlya-rakoviny/)
+7. Написать функцию для получения всех характеристики товара в консоли браузера в виде объекта в формате attributeName: value на странице [https://nir-vanna.ru/product/smesitel-bravat-art-f175109c-dlya-rakoviny/](https://nir-vanna.ru/product/smesitel-bravat-art-f175109c-dlya-rakoviny/)
 
 ### Ответ:
 
